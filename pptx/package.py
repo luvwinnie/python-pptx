@@ -217,6 +217,7 @@ class _MediaParts(object):
         ("file").
         """
         for media_part in self:
-            if media_part.sha1 == sha1:
-                return media_part
+            if hasattr(media_part, "sha1"):
+                if media_part.sha1 == sha1:
+                    return media_part
         return None
